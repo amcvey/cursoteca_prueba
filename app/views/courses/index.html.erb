@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Schools', schools_path %>
+<%= link_to 'Schools', schools_path if can? :read, @school %>
 
 <form>
   <input name="query" id="q" <%= @q %> >
@@ -32,7 +32,7 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_course_path if can? :create, @course %>
 
 <%= paginate @courses %>
 

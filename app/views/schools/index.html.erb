@@ -1,4 +1,4 @@
-<%= link_to 'New  School', new_school_path %>
+<%= link_to 'New  School', new_school_path if can? :create, @school %>
 
 <form>
   <input name="query" id="r" <%= @q %> >

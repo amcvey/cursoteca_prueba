@@ -7,9 +7,10 @@ class Ability
       user ||= User.new(role:0) # guest user (not logged in)
 
       if user.school?
-        can :read, :all
+        can :read, [Course]
         can :create, [Course]
         can [:update, :destroy, :edit], [Course], user_id: user.id
+        can :edit, [School], user_id: user.id
         
       elsif user.admin?
         can :manage, :all
