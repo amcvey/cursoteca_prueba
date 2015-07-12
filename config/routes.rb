@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  get 'schools/create'
-
-  get 'schools/new'
-
-  get 'schools/destroy'
-
-  get 'schools/index'
-
-  get 'schools/update'
-
-  get 'schools/show'
+  
 
   post '/rate' => 'rater#create', :as => 'rate'
   get 'comments/create'

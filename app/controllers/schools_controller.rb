@@ -24,13 +24,21 @@ class SchoolsController < ApplicationController
   def destroy
     @school.destroy
     respond_to do |format|
-      format.html { redirect_to schools_index , notice: 'School was successfully destroyed.' }
+      format.html { redirect_to schools_path , notice: 'School was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   def index
+    @schools = School.all
+    @query = params[:r]
+    if @query.nil?
+      @schools = School.all
+    else 
+      @schools = School.where("name like ? or company_name like ?", "%#{@query}%", "%#{@query}%" )
+    end 
 
+      
   end
 
   def edit 
