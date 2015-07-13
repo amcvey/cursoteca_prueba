@@ -25,5 +25,7 @@
   <%= @school.bank_account%>
 </p>
 
+
+
 <%= link_to 'Edit', edit_school_path(@school) if can? :edit, @school %> |
 <%= link_to 'Back', schools_path  %>
